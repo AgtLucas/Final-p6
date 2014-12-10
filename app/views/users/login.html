@@ -1,0 +1,33 @@
+{% extends 'auth.html' %}
+
+{% block auth %}
+  <form action="/users/session" method="post" role="form">
+    <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+
+    <p class="col-sm-offset-2 error">
+      {{ message }}
+    </p>
+
+    <div>
+      <label for="email">Email</label>
+      <div>
+        <input id="email" class="form-control" type="email" placeholder="Email" name="email">
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <div>
+        <input id="password"type="password" placeholder="Password" name="password">
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <button type="submit">Log in</button>
+        &nbsp; or &nbsp;
+        <a href="/signup">Sign up</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}
